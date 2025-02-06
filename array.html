@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pegawai</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Pegawai</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Jabatan</th>
+                <th>Umur</th>
+            </tr>
+        </thead>
+        <tbody id="data-pegawai">
+            <!-- Data pegawai akan ditampilkan di sini -->
+        </tbody>
+    </table>
+
+    <script>
+        // Array yang berisi data 5 pegawai
+        const pegawai = [
+            { nama: 'Andi', jabatan: 'Manager', umur: 35 },
+            { nama: 'Budi', jabatan: 'Staff', umur: 28 },
+            { nama: 'Cici', jabatan: 'Supervisor', umur: 40 },
+            { nama: 'Dewi', jabatan: 'HRD', umur: 32 },
+            { nama: 'Eka', jabatan: 'Admin', umur: 25 }
+        ];
+
+        // Menampilkan data pegawai ke dalam tabel
+        const tableBody = document.getElementById('data-pegawai');
+        
+        pegawai.forEach((data, index) => {
+            const row = document.createElement('tr');
+            
+            const cellNo = document.createElement('td');
+            cellNo.textContent = index + 1;
+            row.appendChild(cellNo);
+            
+            const cellNama = document.createElement('td');
+            cellNama.textContent = data.nama;
+            row.appendChild(cellNama);
+            
+            const cellJabatan = document.createElement('td');
+            cellJabatan.textContent = data.jabatan;
+            row.appendChild(cellJabatan);
+            
+            const cellUmur = document.createElement('td');
+            cellUmur.textContent = data.umur;
+            row.appendChild(cellUmur);
+            
+            tableBody.appendChild(row);
+        });
+    </script>
+</body>
+</html>
